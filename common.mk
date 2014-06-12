@@ -176,6 +176,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=4m
 PRODUCT_TAGS += dalvik.gc.type-precise
-
-# Use the non-open-source parts, if they're present
-include vendor/samsung/u8500-common/vendor-common.mk
