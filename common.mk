@@ -81,9 +81,6 @@ PRODUCT_PACKAGES += \
     libaudioutils \
     libtinyalsa
 
-# U8500 Hardware
-$(call inherit-product, hardware/u8500/u8500.mk)
-
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
@@ -101,6 +98,10 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     SamsungServiceMode \
     Torch
+
+# Memory Tracker HAL
+PRODUCT_PACKAGES += \
+    memtrack.montblanc
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
