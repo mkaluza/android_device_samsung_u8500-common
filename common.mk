@@ -31,6 +31,9 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/init.u8500.usb.rc:root/init.u8500.usb.rc
 
 # Graphics
+PRODUCT_PACKAGES += \
+    libblt_hw
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     ro.zygote.disable_gl_preload=1 \
@@ -43,6 +46,9 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/omxloaders:system/etc/omxloaders \
     $(COMMON_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(COMMON_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+
+PRODUCT_PACKAGES += \
+    libomxil-bellagio
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -75,11 +81,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(COMMON_PATH)/configs/asound.conf:system/etc/asound.conf
+
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
+    libasound \
     libaudioutils \
     libtinyalsa
+
+# Sensors
+PRODUCT_PACKAGES += \
+    lights.montblanc
 
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
