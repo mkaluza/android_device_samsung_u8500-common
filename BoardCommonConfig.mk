@@ -54,6 +54,8 @@ TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/u8500-common/shbootimg.mk
+TARGET_KERNEL_SOURCE := kernel/samsung/u8500
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-4.8
 
 # Graphics
 USE_OPENGL_RENDERER := true
