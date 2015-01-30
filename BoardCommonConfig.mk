@@ -123,10 +123,10 @@ BOARD_RECOVERY_SWIPE := true
 RECOVERY_FSTAB_VERSION := 2
 
 # SELinux
-BOARD_SEPOLICY_DIRS += \
+#BOARD_SEPOLICY_DIRS += \
     device/samsung/u8500-common/selinux
 
-BOARD_SEPOLICY_UNION += \
+#BOARD_SEPOLICY_UNION += \
     device.te \
     file.te \
     rild.te \
