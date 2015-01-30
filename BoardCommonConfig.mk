@@ -94,8 +94,10 @@ BOARD_RIL_CLASS := ../../../device/samsung/u8500-common/ril/
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
 BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
+BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
 COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB -DMR1_AUDIO_BLOB -DBOARD_CANT_REALLOCATE_OMX_BUFFERS 
 USE_LEGACY_AUDIO_POLICY := 1
+BOARD_USES_LEGACY_MMAP := true
 
 
 # Override healthd HAL
@@ -112,6 +114,12 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc
 
 # Charging mode
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/devices/virtual/power_supply/battery/lpm_mode
+COMMON_GLOBAL_FLAGS += -DCHARGING_ENABLED_PATH=$("/sys/devices/virtual/power_supply/battery/lpm_mode")
+BOARD_CHARGER_DISABLE_INIT_BLANK := true
+BOARD_CHARGER_ENABLE_SUSPEND := true
+
+# Backlight
+COMMON_GLOBAL_FLAGS += -DBACKLIGHT_PATH=$("/sys/class/backlight/panel/brightness")
 
 # Recovery
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/u8500-common/recovery/graphics.c graphics_overlay.c
