@@ -1,0 +1,25 @@
+--- minui/graphics.c	2015-01-30 07:14:17.080005347 +0100
++++ /mnt/files/android/vanir.shallow/device/samsung/u8500-common/recovery/graphics.c	2015-01-30 11:18:36.239769818 +0100
+@@ -314,7 +314,7 @@ static void gr_init_font(void)
+     gr_font->ascent = font.cheight - 2;
+ }
+ 
+-int gr_init(void)
++int gr_init_real(void)
+ {
+     gglInit(&gr_context);
+     GGLContext *gl = gr_context;
+@@ -357,6 +357,13 @@ int gr_init(void)
+     return 0;
+ }
+ 
++int gr_init(void)
++{
++    gr_init_real();
++    gr_init_real();
++    return 0;
++}
++
+ void gr_exit(void)
+ {
+     close(gr_fb_fd);
