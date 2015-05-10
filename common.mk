@@ -28,7 +28,8 @@ PRODUCT_PACKAGES += \
 # U8500 Common init
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/init.u8500.rc:root/init.u8500.rc \
-    $(COMMON_PATH)/rootdir/init.u8500.usb.rc:root/init.u8500.usb.rc
+    $(COMMON_PATH)/rootdir/init.u8500.usb.rc:root/init.u8500.usb.rc \
+		$(COMMON_PATH)/rootdir/init.environ.rc:root/init.environ.rc
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -36,19 +37,29 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote.disable_gl_preload=1 \
     ro.bq.gpu_to_cpu_unsupported=1 \
     debug.sf.hw=1 \
-    debug.hwui.render_dirty_regions=false
+    debug.hwui.render_dirty_regions=false \
+		persist.sys.use_dithering=2 \
+		persist.sys.strictmode.disable=1
 
 # Media
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/omxloaders:system/etc/omxloaders \
     $(COMMON_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(COMMON_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+    $(COMMON_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
 # Wifi
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 PRODUCT_PACKAGES += \
-    libnetcmdiface
+    libnetcmdiface \
+		wpa_supplicant \
+		libwpa_client \
+		hostapd \
+		dhcpcd.conf
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=150
@@ -150,15 +161,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     librs_jni
 
-# Disable error Checking
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.kernel.android.checkjni=0 \
-    dalvik.vm.checkjni=false
-
-# SELinux
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.boot.selinux=permissive
-
 # Storage switch
  PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.vold.switchablepair=sdcard0,sdcard1
@@ -173,6 +175,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=4m
 PRODUCT_TAGS += dalvik.gc.type-precise
+
+# Others configurations
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.locationfeatures=1 \
+    ro.setupwizard.mode=OPTIONAL \
+    ro.setupwizard.enable_bypass=1 \
+    ro.config.sync=yes \
+    ro.config.ntp.server_poll=86400000 \
+    ro.config.ntp.clock_sync=1800000 \
+    ro.config.ntp.sync_mode=3
 
 # KSM
 PRODUCT_PROPERTY_OVERRIDES += \
