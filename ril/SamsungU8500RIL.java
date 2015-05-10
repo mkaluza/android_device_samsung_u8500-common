@@ -1,4 +1,4 @@
-*
+/*
  * Copyright (C) 2011 The CyanogenMod Project <http://www.cyanogenmod.org>
  * Copyright (C) 2014 MaclawStudio
  *
