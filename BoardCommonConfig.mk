@@ -33,7 +33,7 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 641728512
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2147483648
 
-# Platform 
+# Platform
 TARGET_SOC := u8500
 BOARD_USES_STE_HARDWARE := true
 TARGET_BOARD_PLATFORM := montblanc
@@ -117,7 +117,7 @@ BOARD_RECOVERY_SWIPE := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/u8500-common/selinux
+    device/samsung/u8500-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     device.te \
