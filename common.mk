@@ -59,7 +59,8 @@ PRODUCT_PACKAGES += \
 		wpa_supplicant \
 		libwpa_client \
 		hostapd \
-		dhcpcd.conf
+		dhcpcd.conf \
+		libnetcmdiface
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=150
@@ -97,7 +98,7 @@ $(call inherit-product, hardware/u8500/u8500.mk)
 
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb \
+    persist.sys.usb.config=mtp \
     persist.service.adb.enable=1
 
 # Charger
