@@ -15,8 +15,10 @@
 # limitations under the License.
 #
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/u8500-common/include
-PRODUCT_VENDOR_KERNEL_HEADERS := device/samsung/u8500-common/kernel-headers
+LOCAL_PATH := device/samsung/u8500-commmon
+
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+PRODUCT_VENDOR_KERNEL_HEADERS := $(LOCAL_PATH)/kernel-headers
 
 # Board
 TARGET_NO_BOOTLOADER := true
@@ -57,14 +59,14 @@ TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 # Kernel
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE := 0x40000000
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/u8500-common/shbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/shbootimg.mk
 
 # Graphics
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 COMMON_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH -DWORKAROUND_BUG_10194508
-BOARD_EGL_CFG := device/samsung/u8500-common/configs/egl.cfg
+BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 
 # Wifi
 BOARD_WLAN_DEVICE                := bcmdhd
@@ -87,10 +89,10 @@ BOARD_NO_APSME_ATTR              := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUEDROID_VENDOR_CONF := device/samsung/u8500-common/bluetooth/vnd_u8500.txt
+BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/vnd_u8500.txt
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/samsung/u8500-common/ril/
+BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -114,9 +116,9 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/devices/virtual/power_supply/battery/lpm
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Recovery
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/u8500-common/recovery/graphics.c
+BOARD_CUSTOM_GRAPHICS := ../../../$(LOCAL_PATH)/recovery/graphics.c
 BOARD_UMS_LUNFILE := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun0/file"
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/u8500-common/recovery/recovery_keys.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../$(LOCAL_PATH)/recovery/recovery_keys.c
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -126,7 +128,7 @@ BOARD_RECOVERY_SWIPE := true
 # SELinux
 BOARD_SEPOLICY_DIRS := \
     $(BOARD_SEPOLICY_DIRS) \
-    device/samsung/u8500-common/sepolicy
+    $(LOCAL_PATH)/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     device.te \
@@ -143,7 +145,7 @@ BOARD_SEPOLICY_UNION += \
 COMMON_GLOBAL_CFLAGS += -DRECOVERY_CANT_USE_CONFIG_EXT4_FS_XATTR
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/u8500-common/releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools
 
 # Misc
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
