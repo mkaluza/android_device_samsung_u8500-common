@@ -34,6 +34,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libblt_hw
 
+PRODUCT_PACKAGES += \
+    lz4
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     ro.zygote.disable_gl_preload=1 \
