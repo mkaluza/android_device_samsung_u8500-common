@@ -59,6 +59,9 @@ TARGET_KERNEL_SOURCE := kernel/samsung/u8500
 TARGET_GCC_VERSION=4.8
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := 4.9-linaro
 
+# this doesn't work with bionic
+# TARGET_ENABLE_LTO := true
+
 # Graphics
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
