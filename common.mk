@@ -202,3 +202,11 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/UKM,system/UKM/) \
 	$(LOCAL_PATH)/Synapse.apk:/system/app/Synapse.apk
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.hwui.drop_shadow_cache_size=1 \
+	ro.hwui.gradient_cache_size=0.2 \
+	ro.hwui.layer_cache_size=6 \
+	ro.hwui.path_cache_size=2 \
+	ro.hwui.r_buffer_cache_size=1 \
+	ro.hwui.texture_cache_size=8
