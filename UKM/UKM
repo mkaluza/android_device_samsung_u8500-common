@@ -17,7 +17,6 @@ if [ -d /system/UKM -a ! -d $UKM ]; then
 	for d in `find . -type d`; do
 		mkdir -p $UKM/$d
 	done
-	cp uci $UKM/
 	for f in `find . -type f`; do
 		ln -s $PWD/$f $UKM/$f
 	done
