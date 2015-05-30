@@ -175,6 +175,7 @@ PRODUCT_PACKAGES += \
     PhotoTable \
     CMFileManager \
     Apollo \
+    DroidWall \
     SoundRecorder
 
 # Disable error Checking
