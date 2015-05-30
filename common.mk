@@ -174,6 +174,7 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     PhotoTable \
     CMFileManager \
+    Apollo \
     SoundRecorder
 
 # Disable error Checking
@@ -202,6 +203,9 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/UKM,system/UKM/) \
+	$(LOCAL_PATH)/Terminal.apk:/system/app/Terminal.apk \
+	$(LOCAL_PATH)/ZeamLauncher.apk:/system/app/ZeamLauncher.apk \
+	$(LOCAL_PATH)/KoControl.apk:/system/app/KoControl.apk \
 	$(LOCAL_PATH)/Synapse.apk:/system/app/Synapse.apk
 
 PRODUCT_PROPERTY_OVERRIDES += \
