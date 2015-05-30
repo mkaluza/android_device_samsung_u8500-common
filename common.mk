@@ -173,6 +173,7 @@ PRODUCT_PACKAGES += \
     PhaseBeam \
     VisualizationWallpapers \
     PhotoTable \
+    CMFileManager \
     SoundRecorder
 
 # Disable error Checking
