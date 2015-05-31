@@ -56,8 +56,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/u8500-common/shbootimg.mk
 TARGET_KERNEL_SOURCE := kernel/samsung/u8500
-#doesn't boot with 4.9
-TARGET_GCC_VERSION=4.8-linaro
+TARGET_GCC_VERSION=4.9-linaro
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := 4.9
 
 # Graphics
