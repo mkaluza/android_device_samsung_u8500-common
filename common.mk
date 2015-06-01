@@ -202,7 +202,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_COPY_FILES += \
-	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/UKM,system/UKM/) \
 	$(LOCAL_PATH)/DroidWall.apk:/system/app/DroidWall.apk \
 	$(LOCAL_PATH)/ZeamLauncher.apk:/system/app/ZeamLauncher.apk \
 	$(LOCAL_PATH)/KoControl.apk:/system/app/KoControl.apk \
