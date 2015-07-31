@@ -164,15 +164,7 @@ PRODUCT_COPY_FILES += \
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam \
-    VisualizationWallpapers \
-    PhotoTable \
+    Calendar \
     CMFileManager \
     Apollo \
     SoundRecorder
